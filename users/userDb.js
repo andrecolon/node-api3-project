@@ -19,11 +19,11 @@ function getById(id) {
     .first();
 }
 
-function getUserPosts(userId) {
+function getUserPosts(userPost) {
   return db('posts as p')
     .join('users as u', 'u.id', 'p.user_id')
     .select('p.id', 'p.text', 'u.name as postedBy')
-    .where('p.user_id', userId);
+    .where('p.user_id', userPost);
 }
 
 function insert(user) {
